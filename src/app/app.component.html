@@ -3,7 +3,14 @@
 
 <img src="{{url}}" alt=""> -->
 
-<p>nombre es: {{name}}</p>
+<p *ngIf="name">nombre es: {{name}}</p>
 <!-- Enlaces de datos bidireccional -->
 <input type="text" [(ngModel)] = "name">
 
+
+<ul *ngFor="let city of cities">
+  <li>{{city}}</li>
+  <!-- <li>Barcelona</li> -->
+  <!-- <li>Madril</li> -->
+  <!-- <li>colombia</li> -->
+</ul>
