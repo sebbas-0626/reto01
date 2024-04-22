@@ -8,9 +8,24 @@
 <input type="text" [(ngModel)] = "name">
 
 
+<!-- array -->
 <ul *ngFor="let city of cities">
-  <li>{{city}}</li>
+  <li [ngClass]="['selected','blue']">{{city}}</li>
   <!-- <li>Barcelona</li> -->
   <!-- <li>Madril</li> -->
   <!-- <li>colombia</li> -->
+</ul>
+<h1>objeto</h1>
+<!-- objeto -->
+<ul *ngFor="let city of cities">
+  <!-- //condicional -->
+  <li [ngClass]="{'selected': city === 'Barcelona','blue': city !== 'Barcelona'}">{{city}}</li>
+  <!-- <li>Barcelona</li> -->
+  <!-- <li>Madril</li> -->
+  <!-- <li>colombia</li> -->
+</ul>
+<h1>style</h1>
+<ul *ngFor="let city of cities">
+  <!-- //condicional -->
+  <li [ngStyle]="{'color': 'red', 'background-color': city === 'Madril' ? 'blue' : 'green'}">{{city}}</li>
 </ul>
