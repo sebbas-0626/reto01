@@ -3,14 +3,13 @@
 
 <img src="{{url}}" alt=""> -->
 
-<p *ngIf="name">nombre es: {{name}}</p>
+<p *ngIf="name">nombre es: {{ name }}</p>
 <!-- Enlaces de datos bidireccional -->
-<input type="text" [(ngModel)] = "name">
-
+<input type="text" [(ngModel)]="name" />
 
 <!-- array -->
 <ul *ngFor="let city of cities">
-  <li [ngClass]="['selected','blue']">{{city}}</li>
+  <li [ngClass]="['selected', 'blue']">{{ city }}</li>
   <!-- <li>Barcelona</li> -->
   <!-- <li>Madril</li> -->
   <!-- <li>colombia</li> -->
@@ -19,7 +18,11 @@
 <!-- objeto -->
 <ul *ngFor="let city of cities">
   <!-- //condicional -->
-  <li [ngClass]="{'selected': city === 'Barcelona','blue': city !== 'Barcelona'}">{{city}}</li>
+  <li
+    [ngClass]="{ selected: city === 'Barcelona', blue: city !== 'Barcelona' }"
+  >
+    {{ city }}
+  </li>
   <!-- <li>Barcelona</li> -->
   <!-- <li>Madril</li> -->
   <!-- <li>colombia</li> -->
@@ -27,5 +30,28 @@
 <h1>style</h1>
 <ul *ngFor="let city of cities">
   <!-- //condicional -->
-  <li [ngStyle]="{'color': 'red', 'background-color': city === 'Madril' ? 'blue' : 'green'}">{{city}}</li>
+  <li
+    [ngStyle]="{
+      color: 'red',
+      'background-color': city === 'Madril' ? 'blue' : 'green'
+    }"
+  >
+    {{ city }}
+  </li>
 </ul>
+<!-- event binding -->
+<h1>event binding</h1>
+
+<div>
+  <p *ngIf="selection">your city is: {{ selection }}</p>
+  <button *ngIf="selection" (click)="onClear()">clear your selection</button>
+  <ul *ngFor="let city of cities">
+    <!-- //condicional -->
+    <li
+      (click)="oncityCliked(city)"
+      [ngClass]="{ selection: city === selection }"
+    >
+      {{ city }}
+    </li>
+  </ul>
+</div>
