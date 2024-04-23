@@ -44,7 +44,8 @@
 
 <div>
   <p *ngIf="selection">your city is: {{ selection }}</p>
-  <button *ngIf="selection" (click)="onClear()">clear your selection</button>
+  <!-- <button *ngIf="selection" (click)="onClear()">clear your selection</button> -->
+  <app-button (click)="onClear()" [color]="'blue'" [label]="'clear your selection'"></app-button>
   <ul *ngFor="let city of cities">
     <!-- //condicional -->
     <li
